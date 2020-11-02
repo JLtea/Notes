@@ -104,3 +104,32 @@ Folder Structure:
 |           Slice.js
 ```
 
+postsSlice.js example
+```
+const postsSlice = createSlice({
+  name: 'posts',
+  initialState,
+  reducers: {
+    postAdded(state, action) {
+      state.push(action.payload)
+    }
+  }
+})
+
+export const { postAdded } = postsSlice.actions
+
+export default postsSlice.reducer
+```
+
+The reducer function `postAdded` receives (`state`: the current posts value, `action`: the object that was dispatched).
+
+**createSlice** will automatically generate an action creator function with the same name ("postAdded").
+
+### React-Redux Hooks
+
+```
+import { useSelector } from 'react-redux'
+
+export const FunctionComponent = () => {
+    const posts = useSelector
+}
