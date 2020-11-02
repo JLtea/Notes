@@ -11,9 +11,9 @@ Most useful when _multiple components that need to share and use the same state_
 **mutable** = changeable
 **immutable** = cannot be changed
 
-### Key Terms
+## Key Terms
 
-#### Action
+### Action
 
 Typical Action Object:
 
@@ -29,7 +29,7 @@ Convention
 - `type` field string with _domain_ - category that action belongs to, _eventName_ - event that happened
 - `payload` additional information about event
 
-#### Reducer
+### Reducer
 
 Function receiving `state` and `action` object, and returns new state
 
@@ -48,14 +48,15 @@ function exampleReducer(state = initialState, action) {
     if (action.type === 'domain/eventName') {
         return {
             ...state,
-            value: state.value // new state value
+            value: state.value // immutable update to state
+            // state.value = 123 -- mutates original state (illegal)
         }
     }
     return state
 }
 ```
 
-#### Store
+### Store
 
 Redux application object
 
@@ -68,7 +69,7 @@ const store = configureStore({ reducer: exampleReducer })
 
 ```
 
-#### Dispatch
+### Dispatch
 
 Redux `store` method updating the state
 
@@ -77,3 +78,21 @@ Example use:
 ```
 store.dispatch({ type: 'domain/eventName' })
 ```
+
+## Redux Slices
+
+The root Redux state object is split into multiple `slices`
+
+Folder Structure:
+```
+/src
+|   index.js
+|   App.js
+|   /redux
+|       store.js
+|       /features
+|           Slice.js
+```
+
+
+
