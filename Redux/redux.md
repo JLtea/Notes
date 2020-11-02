@@ -1,6 +1,6 @@
 # Redux Notes
 
-### State Management
+### Global State Management
 
 **state** source of truth | **view** description of UI based on current state | **actions** events that occur and update the state
 
@@ -8,8 +8,7 @@ Most useful when _multiple components that need to share and use the same state_
 
 ### Immutability
 
-**mutable** = changeable
-**immutable** = cannot be changed
+**mutable** = changeable / **immutable** = cannot be changed
 
 ## Key Terms
 
@@ -79,6 +78,17 @@ Example use:
 store.dispatch({ type: 'domain/eventName' })
 ```
 
+### Selectors
+
+Functions that extract state values from the Redux store
+
+Example use:
+```
+const selectValue = state => state.value
+
+const currentValue = selectValue(store.getState())
+```
+
 ## Redux Slices
 
 The root Redux state object is split into multiple `slices`
@@ -93,6 +103,4 @@ Folder Structure:
 |       /features
 |           Slice.js
 ```
-
-
 
