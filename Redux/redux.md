@@ -45,10 +45,12 @@ const initialState = { value: 0 }
 
 function exampleReducer(state = initialState, action) {
     if (action.type === 'domain/eventName') {
+
+        state.value = 123 // mutates original state (DON'T DO THIS)
+
         return {
             ...state,
             value: state.value // immutable update to state
-            // state.value = 123 -- mutates original state (illegal)
         }
     }
     return state
@@ -83,6 +85,7 @@ store.dispatch({ type: 'domain/eventName' })
 Functions that extract state values from the Redux store
 
 Example use:
+
 ```
 const selectValue = state => state.value
 
@@ -94,6 +97,7 @@ const currentValue = selectValue(store.getState())
 The root Redux state object is split into multiple `slices`
 
 Folder Structure:
+
 ```
 /src
 |   index.js
@@ -105,6 +109,7 @@ Folder Structure:
 ```
 
 postsSlice.js example
+
 ```
 const postsSlice = createSlice({
   name: 'posts',
@@ -128,8 +133,19 @@ The reducer function `postAdded` receives (`state`: the current posts value, `ac
 ### React-Redux Hooks
 
 ```
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 export const FunctionComponent = () => {
-    const posts = useSelector
+    const posts = useSelector(state => state.posts)
+    const onClick = () => {
+      dispatch(
+        postAdded({
+          id: 1,
+          title: "newTitle",
+          content: "content"
+        })
+      )
+    }
+    ...
 }
+```
