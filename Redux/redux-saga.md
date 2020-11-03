@@ -29,3 +29,24 @@ The saga file is usually split into two types:
 
 - **watchers** match actions dispatched to the redux store, and assign it to its worker saga
 - **workers** run all the side effects it was meant to do
+
+### Middleware Setup
+
+```
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import reducer from './reducers'
+
+import { exampleSaga } from './sagas'
+
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(
+    reducer,
+    applyMiddleware(sagaMiddleware)
+)
+sagaMiddleware.run(exampleSaga)
+```
+
+### Saga Helpers (Effects)
+
+Saga Helpers API Reference: [https://redux-saga.js.org/docs/api/]
