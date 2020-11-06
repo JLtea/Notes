@@ -23,3 +23,9 @@ Change Password
 ```
 alter user <username> with encrypted password '<password>';
 ```
+
+Grant Database Access
+
+```
+grant all privileges on database postgres to <username>;
+```
