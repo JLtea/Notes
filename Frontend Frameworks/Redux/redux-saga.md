@@ -32,6 +32,8 @@ The saga file is usually split into two types:
 
 ### Middleware Setup
 
+component.js
+
 ```
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
@@ -45,6 +47,35 @@ const store = createStore(
     applyMiddleware(sagaMiddleware)
 )
 sagaMiddleware.run(exampleSaga)
+
+const action = type => stores.dispatch({type})
+
+...
+
+return (
+    <Component>
+        value = {store.getState()}
+        onClick{() => action('CLICK_ACTION')}
+        onAsync{() => action('CLICK_ASYNC')}
+    </Component>
+)
+```
+
+sagas.js
+
+```
+import { put, takeEvery } from 'redux-saga/effects'
+
+//example async
+const delay = (ms) => new Promise(res => setTimeout(res,ms))
+
+export function* actionAsync() {
+    yield delay(1000)
+    yield put({ type: 'CLICK_ASYNC'})
+}
+export function* watch_actionAsync() {
+    yield takeEvery('CLICK_ASYNC', actionAsync)
+}
 ```
 
 ### Saga Helpers (Effects)
