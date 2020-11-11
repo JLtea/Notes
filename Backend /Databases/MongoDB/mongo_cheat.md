@@ -1,42 +1,42 @@
-# MongoDB Cheat Sheet
+# MongoDB Cheat Sheet @bradtraversy
 
-## Show All Databases
+#### Show All Databases
 
 ```
 show dbs
 ```
 
-## Show Current Database
+#### Show Current Database
 
 ```
 db
 ```
 
-## Create Or Switch Database
+#### Create Or Switch Database
 
 ```
 use acme
 ```
 
-## Drop
+#### Drop
 
 ```
 db.dropDatabase()
 ```
 
-## Create Collection
+#### Create Collection
 
 ```
 db.createCollection('posts')
 ```
 
-## Show Collections
+#### Show Collections
 
 ```
 show collections
 ```
 
-## Insert Row
+#### Insert Row
 
 ```
 db.posts.insert({
@@ -52,7 +52,7 @@ db.posts.insert({
 })
 ```
 
-## Insert Multiple Rows
+#### Insert Multiple Rows
 
 ```
 db.posts.insertMany([
@@ -77,25 +77,25 @@ db.posts.insertMany([
 ])
 ```
 
-## Get All Rows
+#### Get All Rows
 
 ```
 db.posts.find()
 ```
 
-## Get All Rows Formatted
+#### Get All Rows Formatted
 
 ```
 db.find().pretty()
 ```
 
-## Find Rows
+#### Find Rows
 
 ```
 db.posts.find({ category: 'News' })
 ```
 
-## Sort Rows
+#### Sort Rows
 
 ```
 # asc
@@ -104,26 +104,26 @@ db.posts.find().sort({ title: 1 }).pretty()
 db.posts.find().sort({ title: -1 }).pretty()
 ```
 
-## Count Rows
+#### Count Rows
 
 ```
 db.posts.find().count()
 db.posts.find({ category: 'news' }).count()
 ```
 
-## Limit Rows
+#### Limit Rows
 
 ```
 db.posts.find().limit(2).pretty()
 ```
 
-## Chaining
+#### Chaining
 
 ```
 db.posts.find().limit(2).sort({ title: 1 }).pretty()
 ```
 
-## Foreach
+#### Foreach
 
 ```
 db.posts.find().forEach(function(doc) {
@@ -131,13 +131,13 @@ db.posts.find().forEach(function(doc) {
 })
 ```
 
-## Find One Row
+#### Find One Row
 
 ```
 db.posts.findOne({ category: 'News' })
 ```
 
-## Find Specific Fields
+#### Find Specific Fields
 
 ```
 db.posts.find({ title: 'Post One' }, {
@@ -146,7 +146,7 @@ db.posts.find({ title: 'Post One' }, {
 })
 ```
 
-## Update Row
+#### Update Row
 
 ```
 db.posts.update({ title: 'Post Two' },
@@ -160,7 +160,7 @@ db.posts.update({ title: 'Post Two' },
 })
 ```
 
-## Update Specific Field
+#### Update Specific Field
 
 ```
 db.posts.update({ title: 'Post Two' },
@@ -172,7 +172,7 @@ db.posts.update({ title: 'Post Two' },
 })
 ```
 
-## Increment Field (\$inc)
+#### Increment Field (\$inc)
 
 ```
 db.posts.update({ title: 'Post Two' },
@@ -183,7 +183,7 @@ db.posts.update({ title: 'Post Two' },
 })
 ```
 
-## Rename Field
+#### Rename Field
 
 ```
 db.posts.update({ title: 'Post Two' },
@@ -194,13 +194,13 @@ db.posts.update({ title: 'Post Two' },
 })
 ```
 
-## Delete Row
+#### Delete Row
 
 ```
 db.posts.remove({ title: 'Post Four' })
 ```
 
-## Sub-Documents
+#### Sub-Documents
 
 ```
 db.posts.update({ title: 'Post One' },
@@ -222,7 +222,7 @@ db.posts.update({ title: 'Post One' },
 })
 ```
 
-## Find By Element in Array (\$elemMatch)
+#### Find By Element in Array (\$elemMatch)
 
 ```
 db.posts.find({
@@ -235,13 +235,13 @@ db.posts.find({
 )
 ```
 
-## Add Index
+#### Add Index
 
 ```
 db.posts.createIndex({ title: 'text' })
 ```
 
-## Text Search
+#### Text Search
 
 ```
 db.posts.find({
@@ -251,7 +251,7 @@ db.posts.find({
 })
 ```
 
-## Greater & Less Than
+#### Greater & Less Than
 
 ```
 db.posts.find({ views: { $gt: 2 } })
