@@ -26,9 +26,19 @@ Pre-rendering: Next.js generates HTML for each page in advance, as opposed to cl
 
 When Should I Use Next JS?
 
-- Most or all the content is static (i.e. no reliance on an external API to display data based on user actions) => static site generator such as GatsbyJS
-- A web app with a lot of dynamic content and most pages accessible only by authenticated users => use client-side rendering since SEO is not necessary
-- **A web app with a lot of dynamic content and most of the pages accessible by the general public** => Best scenario to use server-side rendering
+There are three scenarios:
+
+Most or all the content is static (i.e. no reliance on an external API to display data based on user actions)
+
+- static site generator such as GatsbyJS
+
+A web app with a lot of dynamic content and most pages accessible only by authenticated users
+
+- use client-side rendering since SEO is not necessary
+
+**A web app with a lot of dynamic content and most of the pages accessible by the general public**
+
+- Best scenario to use server-side rendering; USE NEXT.JS
 
 Benefits:
 
