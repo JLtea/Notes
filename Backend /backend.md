@@ -7,9 +7,11 @@
 **RESTful API** Application Program Interface that uses HTTP requests to GET, PUT, POST and DELETE data.
 
 **CORS** Cross-origin resource sharing
+
 Allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served
 
 **ORM** Object-relational mapping
+
 Technique for converting data between incompatible type systems using object-oriented programming languages
 
 ### HTTP status codes and headers
