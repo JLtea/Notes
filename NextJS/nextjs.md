@@ -24,6 +24,11 @@ package.json:
 
 Pre-rendering: Next.js generates HTML for each page in advance, as opposed to client-side JavaScript rendering.
 
+Two forms of Pre-rendering:
+
+- **Static Generation (Recommended):** The HTML is generated at build time and will be reused on each request.
+- **Server-side Rendering:** The HTML is generated on each request.
+
 When Should I Use Next JS?
 
 - Most or all the content is static (i.e. no reliance on an external API to display data based on user actions) => static site generator such as GatsbyJS
@@ -35,13 +40,15 @@ Benefits:
 - Better percieved performance
 - SEO (Search Engine Optimization)
 
-![](./CSRvsSSR.PNG)
-
 Drawbacks:
 
 - Lack of compatibility with other React libraries
 - Although better percieved performance, may not actually be more performant;
   When rendering HTML on the server, the server needs to itself load the React app, and it also needs to run a synchronous method called renderToString() in order to generate the required HTML markup that will be sent to the client. Because of this,
+
+### Client vs Server Side Rendering
+
+![](./CSRvsSSR.PNG)
 
 Server Side Rendering Steps:
 
