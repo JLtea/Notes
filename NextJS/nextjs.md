@@ -118,7 +118,7 @@ index.js
 </Link>
 ```
 
-use useRouter hook or getInitialProps for access to router object/params
+use `useRouter` hook or `getInitialProps` for access to router object/params
 
 search.js
 
@@ -134,7 +134,7 @@ export default function SearchResults() {
 }
 ```
 
-Must use getInitialProps if using server-side-rendering
+Must use `getInitialProps` if using server-side-rendering
 
 ```
 export default function SearchResults({ name }) {
