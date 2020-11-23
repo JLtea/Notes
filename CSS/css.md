@@ -61,3 +61,34 @@ clamp (min, curr, max)
 ```
 font-size : clamp(1rem, 40px, 4rem)
 ```
+
+## Animations
+
+@keyframes Properties:
+
+- `animation-duration` how long animation should take
+- `animation-delay` delay before start of animation (negative values will start in middle of animation)
+- `animation-iteration-count` number of times animation should run (`infinite` will loop animation)
+- `animation-direction` whether animation should be played `normal` | `reverse` | `alternate` | `alternate-reverse`
+- `animation-timing-function` specifies the speed curve (`ease` default)
+- `animation-fill-mode` specifies style when animation is not playing
+- `from` (same as `0%`)
+- `to` (same as `100%`)
+
+Example
+
+```
+/*animation code*/
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example; // bind animation to element
+  animation-duration: 4s;
+}
+```
