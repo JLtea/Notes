@@ -1,10 +1,12 @@
 # User Authentication
 
+## Key Terms
+
 **OAuth** is an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords. OAuth is an authorization protocol, rather than an authentication protocol. Using OAuth on its own as an authentication method may be referred to as pseudo-authentication.
 
 **CSRF** Cross-Site Request Forgery
 
-### Session-based Authentication
+## Session-based Authentication
 
 **BROWSER** `send` Login Data -> **SERVER** `save` Session to Database -> `return` Cookie{SessionId}
 
@@ -12,7 +14,7 @@
 
 The Session on Server has an expiration time. After that time, this Session has expired and the user must re-login to create another Session.
 
-### JWT JSON Web Token
+## JWT JSON Web Token
 
 **BROWSER** `send` Login Data (username, password) -> **SERVER** `create` JWT with 'secret' -> `return` JWT
 
@@ -32,7 +34,7 @@ Standard Structure:
 x-access-token: [header].[payload].[signature]
 ```
 
-#### Header: how to calculate JWT?
+### Header: how to calculate JWT?
 
 Common JWT Headers:
 
@@ -44,7 +46,7 @@ Common JWT Headers:
 - `x5u` **x.509 Certificate Chain** URL A URL where the server can retrieve a certificate chain corresponding to the private key used to generate the token signature. The server will retrieve and use this information to verify that the signature is authentic.
 - `crit` **Critical** A list of headers that must be understood by the server in order to accept the token as valid
 
-#### Payload: What to store in JWT?
+### Payload: What to store in JWT?
 
 Example
 
@@ -60,7 +62,7 @@ Example
 }
 ```
 
-#### Signature: Hash algorithm
+### Signature: Hash algorithm
 
 ```
 const data = Base64UrlEncode(header) + '.' + Base64UrlEncode(payload);
@@ -68,7 +70,7 @@ const hashedData = Hash(data, secret);
 const signature = Base64UrlEncode(hashedData)
 ```
 
-#### All Together
+### All Together
 
 ```
 const encodedHeader = base64urlEncode(header);
@@ -93,11 +95,11 @@ const JWT = encodedHeader + "." + encodedPayload + "." + signature;
 
 ### User Authentication flow with JWT
 
-1. User Registration
+1. **User Registration**
    `POST` api/auth/signup -> Check existing and save User to database {username,email,role,password} -> return Message("Registered successfully")
 
-2. User Login
+2. **User Login**
    `POST` api/auth/signin -> Authenticate User, Create JWT string w/ 'secret' -> return {token, user info, authorities}
 
-3. Access Resource
+3. **Access Resource**
    Request data with JWT on x-access-token Header -> Check JWT Signature, Get user info & authenticate/authorize -> return Content based on authorities
