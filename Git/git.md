@@ -33,3 +33,11 @@ git push --force origin <branch name> //WARNING: Will overwrite existing branch
 ```
 git cherry-pick <commit goes here>
 ```
+
+Rewrite Commit History:
+
+```
+git filter-branch -f --env-filter \
+"GIT_AUTHOR_NAME='Joseph Lee'; GIT_AUTHOR_EMAIL='tlee95@illinois.edu'; \
+GIT_COMMITTER_NAME='Joseph Lee'; GIT_COMMITTER_EMAIL='tlee95@illinois.edu';" HEAD
+```
