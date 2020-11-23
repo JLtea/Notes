@@ -4,22 +4,13 @@
 
 #### Session-based Authentication
 
-**Browser** `send` Login Data => `save` Session to Database **Server**
+**BROWSER** `send` Login Data => `save` Session to Database **SERVER** => `return` Cookie{SessionId}
 
-**Browser** <= `return` Cookie{SessionId} **Server**
-
-**Browser** `send` Authenticated request with Cookie{SessionId} => `Check` SessionId with stored Session **Server**
-
-**Browser** <= `return` response **Server**
+**BROWSER** `send` Authenticated request with Cookie{SessionId} => `Check` SessionId with stored Session **SERVER** => `return` response
 
 #### **JWT** JSON Web Token
 
 The advantage of using Token-base Authentication over Session-based Authentication is storing the JWT on the _client_ side(Local Storage for Browser, Keychain for IOS and SharedPreferences for Android) as opposed to storing the user's session on Cookie.
-
-Three Important parts:
-**Header**
-**Payload**
-**Signature**
 
 Standard Structure:
 

@@ -3,20 +3,33 @@
 ### Units of Measurement
 
 Absolute Units
+
 `px`: pixel
+
 `in`: inches
+
 `cm`: centimeters
+
 `mm`: millimeters
+
 `pt`: points (1/72 of an inch)
+
 `pc`: picas (12 points)
 
 Relative Units
+
 `%`: percentage of parent element
+
 `vw`: viewport width
+
 `vh`: viewport height
+
 `rem`: root (<html>) element
+
 `em`: the width of a capital letter M of the font-size of the parent element
+
 `ch`: width of the character zero (“0”)
+
 `ex`: the current x-height of the current font or the half of 1em
 
 ### Media Queries
