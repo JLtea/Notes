@@ -2,7 +2,7 @@
 
 ### Units of Measurement
 
-Absolute Units
+**Absolute Units**
 
 `px`: pixel
 
@@ -16,7 +16,7 @@ Absolute Units
 
 `pc`: picas (12 points)
 
-Relative Units
+**Relative Units**
 
 `%`: percentage of parent element
 
