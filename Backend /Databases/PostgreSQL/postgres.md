@@ -29,3 +29,29 @@ Grant Database Access
 ```
 grant all privileges on database postgres to <username>;
 ```
+
+## Database Commands
+
+`\d` show databases | `SHOW TABLES` mySQL
+
+```
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';
+```
+
+`\l` show tables in db | `SHOW DATABASES` mySQL
+
+```
+SELECT datname FROM pg_database;
+```
+
+`\d table` show columns in table | `SHOW COLUMNS` mySQL
+
+```
+SELECT column_name FROM information_schema.columns WHERE table_name ='table';
+```
+
+`\d+ table` show data in specific column | `DESCRIBE TABLE` mySQL
+
+```
+SELECT column_name FROM information_schema.columns WHERE table_name ='table';
+```

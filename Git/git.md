@@ -28,6 +28,10 @@ git rebase -i HEAD~<number of commits from head>
 git push --force origin <branch name> //WARNING: Will overwrite existing branch
 ```
 
+```
+git pull --rebase
+```
+
 **Cherry-Picking**: picking one commit from a branch
 
 ```
