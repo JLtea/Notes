@@ -62,6 +62,15 @@ clamp (min, curr, max)
 font-size : clamp(1rem, 40px, 4rem)
 ```
 
+### Operators
+
+```
+.parent > .immediate child {
+  styling
+}
+
+```
+
 ## Animations
 
 @keyframes Properties:
@@ -91,4 +100,43 @@ div {
   animation-name: example; // bind animation to element
   animation-duration: 4s;
 }
+```
+
+### Useful/Commonly Reused Styles
+
+Centering Content
+```
+# Flexbox
+display: flex;
+align-items: center;
+justify-content: center;
+
+# Set weight and width
+margin: 0 auto;
+```
+
+Layering
+```
+.parent {
+  position: relative;
+}
+
+.child1 {
+  postion: absolute;
+  top: 0;
+  text-shadow: 
+  ...
+}
+
+.child2 {
+  position: relative;
+  ...
+}
+
+``
+
+Shadows
+```
+box-shadow: offset-x | offset-y | blur-radius | spread-radius | color
+text-shadow: offset-x | offset-y | blur-radius | color
 ```
