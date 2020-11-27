@@ -32,6 +32,12 @@ grant all privileges on database postgres to <username>;
 
 ## Database Commands
 
+Change Database:
+
+```
+\c dbname
+```
+
 `\d` show databases | `SHOW TABLES` mySQL
 
 ```
@@ -54,4 +60,12 @@ SELECT column_name FROM information_schema.columns WHERE table_name ='table';
 
 ```
 SELECT column_name FROM information_schema.columns WHERE table_name ='table';
+```
+
+Viewing Column Data:
+
+```
+\x # toggle expanded view for readability
+SELECT * FROM tablename LIMIT 10;
+SELECT DISTINCT column_name from table_name;
 ```
