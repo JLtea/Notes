@@ -68,7 +68,23 @@ font-size : clamp(1rem, 40px, 4rem)
 .parent > .immediate child {
   styling
 }
+```
 
+(:) syntax
+
+- (::) distinguishes pseudo content from pseudo selectors, but is not supported on some browsers like IE 8
+
+```
+div:hover {
+
+}
+div:before {
+
+}
+div:focus {
+
+}
+...
 ```
 
 ## Animations
@@ -105,6 +121,7 @@ div {
 ### Useful/Commonly Reused Styles
 
 Centering Content
+
 ```
 # Flexbox
 display: flex;
@@ -116,6 +133,7 @@ margin: 0 auto;
 ```
 
 Layering
+
 ```
 .parent {
   position: relative;
@@ -124,7 +142,7 @@ Layering
 .child1 {
   postion: absolute;
   top: 0;
-  text-shadow: 
+  text-shadow:
   ...
 }
 
@@ -133,10 +151,26 @@ Layering
   ...
 }
 
-``
+```
 
 Shadows
+
 ```
+
 box-shadow: offset-x | offset-y | blur-radius | spread-radius | color
 text-shadow: offset-x | offset-y | blur-radius | color
+
+```
+
+Before & After
+
+```
+
+div:before {
+
+}
+div:after{
+
+}
+
 ```
