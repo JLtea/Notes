@@ -32,6 +32,14 @@ The saga file is usually split into two types:
 
 ### Middleware Setup
 
+`applyMiddleware` helper function for adding functionality to redux's dispatch function
+
+`createSagaMiddleware` factory creating instance of middleware
+
+`applyMiddleware(sagaMiddleware)` returns store enhancer combining multiple middlewares (bc createStore accepts only a single store enhancer)
+
+`compose` used when you want to pass multiple store enhancers to the store. Store enhancers are higher order functions that add some extra functionality to the store. **applyMiddleware** is supplied by default in redux.
+
 component.js
 
 ```
@@ -80,4 +88,15 @@ export function* watch_actionAsync() {
 
 ### Saga Helpers (Effects)
 
-Saga Helpers API Reference: [https://redux-saga.js.org/docs/api/]
+Notable Helpers:
+
+- `takeEvery` listen for every event
+- `takeLatest` listen for only latest event
+- `put` dispatches action
+- `call` runs function, and if it returns a promise, pauses the saga until resolved
+- `all` instructs the middleware to run multiple Effects in parallel and wait for all of them to complete
+- `select` returns the result of selector(getState(), ...args) -- a slice of current Store's state
+- `fork` runs Generator function like **call**, but resumes generator immediately
+- `cancel` cancel a task, allows for cancellation logic in _finally_ block
+
+  Saga Helpers API Reference: [https://redux-saga.js.org/docs/api/]

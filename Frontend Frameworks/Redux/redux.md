@@ -57,6 +57,9 @@ function exampleReducer(state = initialState, action) {
 }
 ```
 
+- use concat, slice, or the spread operator for arrays
+- use Object.assign or object spread of objects
+
 ### Store
 
 Redux application object
@@ -69,6 +72,12 @@ import { configureStore } from '@reduxjs/toolkit'
 const store = configureStore({ reducer: exampleReducer })
 
 ```
+
+Store Methods:
+
+- `getState` reads current state
+- `dispatch` dispatch action
+- `subscribe` listen to state changes -- will fire every action dispatched
 
 ### Dispatch
 
